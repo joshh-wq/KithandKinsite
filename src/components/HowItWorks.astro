@@ -4,19 +4,19 @@ const steps = [
     number: "1",
     title: "Choose your time",
     description: "Set a session for 1-15 minutes. No endless scrolling. You're in control.",
-    screenshot: "Session timer selection"
+    screenshot: "/screenshots/home-timer.png"
   },
   {
     number: "2",
-    title: "See what matters",
-    description: "Photos, memories, gratitude, notes from people you actually know and care about.",
-    screenshot: "Session showing mixed content"
+    title: "Connect with intention",
+    description: "Take your time. Notice. Be present. You can reach out to your people after the session.",
+    screenshot: "/screenshots/session-photo.jpg"
   },
   {
     number: "3",
-    title: "Connect with intention",
-    description: "Reach out to specific people when something moves you. No performing for an audience.",
-    screenshot: "Session completion with reach-out options"
+    title: "Share what matters",
+    description: "Photos, memories, gratitude, notes from people you actually know and care about.",
+    screenshot: "/screenshots/content-types.png"
   }
 ];
 ---
@@ -35,9 +35,13 @@ const steps = [
           </div>
           <div class="step-image">
             <div class="phone-mockup-small">
-              <div class="screenshot-placeholder">
-                <span>{step.screenshot}</span>
-              </div>
+              {step.screenshot ? (
+                <img src={step.screenshot} alt={step.title} class="screenshot" />
+              ) : (
+                <div class="screenshot-placeholder">
+                  <span>{step.placeholder}</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -111,6 +115,13 @@ const steps = [
     box-shadow:
       0 15px 30px -8px rgba(31, 41, 33, 0.12),
       0 0 0 1px rgba(31, 41, 33, 0.05);
+  }
+
+  .screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
   }
 
   .screenshot-placeholder {

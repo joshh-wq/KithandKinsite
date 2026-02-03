@@ -5,6 +5,7 @@
   <div class="container">
     <div class="hero-content">
       <p class="hero-brand">Kith & Kin</p>
+      <div class="hero-divider"></div>
       <h1>
         <span class="hero-setup">No matter what's happening.</span>
         <span class="text-brown hero-main">Stay close to your people.</span>
@@ -44,6 +45,15 @@
     color: var(--text-dark);
     margin-bottom: var(--space-sm);
     letter-spacing: -0.04em;
+  }
+
+  .hero-divider {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brown-light), var(--brown-dark), var(--brown-light));
+    margin: 0 auto var(--space-md);
+    border-radius: 2px;
+    opacity: 0.8;
   }
 
   .hero-content h1 {
