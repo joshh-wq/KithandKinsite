@@ -1,0 +1,121 @@
+---
+---
+
+<section class="signup" id="waitlist">
+  <div class="container-narrow text-center">
+    <h2>Be the first to know when we launch</h2>
+
+    <form class="signup-form" id="signup-form">
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="you@example.com"
+          required
+        />
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="professional" id="professional" />
+          <span>I'm a mental health professional</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-sage">
+        Notify me
+      </button>
+
+      <p class="signup-note" id="form-message">
+        Early supporters get <strong>$19 lifetime access</strong><br />
+        <span class="text-light">(Regular price: $25)</span>
+      </p>
+    </form>
+  </div>
+</section>
+
+<style>
+  .signup {
+    background-color: var(--white);
+    padding: var(--space-3xl) 0;
+  }
+
+  .signup h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .signup-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: var(--space-md);
+  }
+
+  .checkbox-group {
+    display: flex;
+    justify-content: center;
+  }
+
+  .signup-form .btn {
+    width: 100%;
+    margin-bottom: var(--space-md);
+  }
+
+  .signup-note {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .signup-note strong {
+    color: var(--sage);
+  }
+
+  /* Success state */
+  .signup-form.success .form-group,
+  .signup-form.success .btn {
+    display: none;
+  }
+
+  .signup-form.success .signup-note {
+    font-size: 1.125rem;
+    color: var(--sage);
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('signup-form') as HTMLFormElement;
+  const message = document.getElementById('form-message') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const email = formData.get('email');
+    const professional = formData.get('professional') === 'on';
+
+    try {
+      // TODO: Replace with actual Resend/Buttondown API call
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, professional }),
+      });
+
+      if (response.ok) {
+        form.classList.add('success');
+        message.innerHTML = "You're on the list! We'll be in touch soon.";
+      } else {
+        message.innerHTML = '<span style="color: var(--brown);">Something went wrong. Please try again.</span>';
+      }
+    } catch (error) {
+      // For now, just show success (we'll wire up the API later)
+      form.classList.add('success');
+      message.innerHTML = "You're on the list! We'll be in touch soon.";
+    }
+  });
+</script>

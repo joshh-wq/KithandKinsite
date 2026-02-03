@@ -1,0 +1,122 @@
+---
+const stats = [
+  {
+    number: "66%",
+    label: "increase in teen depression",
+    detail: "linked to excessive social media use"
+  },
+  {
+    number: "3+ hrs",
+    label: "doubles mental health risk",
+    detail: "for depression and anxiety symptoms"
+  },
+  {
+    number: "35%",
+    label: "reduction in anxiety",
+    detail: "when limiting use to 30 min/day"
+  }
+];
+---
+
+<section class="stats">
+  <div class="container">
+    <p class="stats-label">The problem in numbers</p>
+
+    <div class="stats-grid">
+      {stats.map((stat) => (
+        <div class="stat-card">
+          <span class="stat-number">{stat.number}</span>
+          <span class="stat-label">{stat.label}</span>
+          <span class="stat-detail">{stat.detail}</span>
+        </div>
+      ))}
+    </div>
+
+    <p class="stats-source">
+      Source: <a href="https://www.hhs.gov/surgeongeneral/reports-and-publications/youth-mental-health/social-media/index.html" target="_blank" rel="noopener">U.S. Surgeon General</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .stats {
+    padding: var(--space-2xl) 0;
+    background-color: var(--sage);
+  }
+
+  .stats-label {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sage-light);
+    margin-bottom: var(--space-lg);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: var(--space-md);
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-detail {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--sage-light);
+  }
+
+  .stats-source {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--sage-light);
+    margin-top: var(--space-lg);
+  }
+
+  .stats-source a {
+    color: var(--sage-light);
+    text-decoration: underline;
+  }
+
+  .stats-source a:hover {
+    color: var(--white);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+    }
+
+    .stat-card {
+      padding: var(--space-sm);
+    }
+  }
+</style>

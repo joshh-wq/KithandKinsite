@@ -1,0 +1,251 @@
+/* Kith & Kin Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Colors - from the app */
+  --cream: #F5F2E9;
+  --cream-light: #FAF9F6;
+  --sage: #5A6B52;
+  --sage-light: #E5E8E3;
+  --brown: #B3865B;
+  --brown-dark: #8B6544;
+  --brown-light: #D4A574;
+  --text-dark: #1F2921;
+  --text-muted: #4A5A4D;
+  --text-light: #8B7355;
+  --white: #FFFFFF;
+  --border: #E5E1D8;
+
+  /* Typography */
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Max widths */
+  --max-width: 1100px;
+  --max-width-narrow: 720px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+  color: var(--brown-dark);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--sage);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--brown);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container-narrow {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 2rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--brown);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--brown-dark);
+  color: var(--white);
+}
+
+.btn-sage {
+  background-color: var(--sage);
+  color: var(--white);
+}
+
+.btn-sage:hover {
+  background-color: #4A5B44;
+  color: var(--white);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--brown);
+  border: 2px solid var(--brown);
+}
+
+.btn-outline:hover {
+  background-color: var(--brown);
+  color: var(--white);
+}
+
+/* Form elements */
+input[type="email"],
+input[type="text"] {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  border: 2px solid var(--border);
+  border-radius: 0.75rem;
+  background-color: var(--white);
+  color: var(--text-dark);
+  transition: border-color 0.2s ease;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--brown);
+}
+
+input[type="email"]::placeholder,
+input[type="text"]::placeholder {
+  color: var(--text-light);
+}
+
+/* Checkbox */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--sage);
+  cursor: pointer;
+}
+
+/* Section spacing */
+section {
+  padding: var(--space-3xl) 0;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-serif {
+  font-family: var(--font-serif);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.text-brown {
+  color: var(--brown-dark);
+}
+
+.text-sage {
+  color: var(--sage);
+}
+
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  section {
+    padding: var(--space-2xl) 0;
+  }
+}

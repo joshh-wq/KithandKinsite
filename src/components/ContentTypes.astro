@@ -1,0 +1,158 @@
+---
+const types = [
+  {
+    icon: "image",
+    title: "Moments",
+    description: "Drop in a handful of photos",
+    color: "sage"
+  },
+  {
+    icon: "book",
+    title: "Memories",
+    description: "Revisit a moment you shared",
+    color: "brown"
+  },
+  {
+    icon: "heart",
+    title: "Gratitude",
+    description: "Let someone know they matter",
+    color: "gold"
+  },
+  {
+    icon: "mail",
+    title: "Notes",
+    description: "Like a thoughtful sticky note",
+    color: "teal"
+  }
+];
+---
+
+<section class="content-types">
+  <div class="container-narrow">
+    <h2 class="text-center">What you share</h2>
+    <p class="content-types-subtitle text-center">No likes. No comments. Just meaningful ways to stay connected.</p>
+
+    <div class="types-grid">
+      {types.map((type) => (
+        <div class="type-card">
+          <div class={`type-icon type-icon-${type.color}`}>
+            {type.icon === "image" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            )}
+            {type.icon === "book" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            )}
+            {type.icon === "heart" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            )}
+            {type.icon === "mail" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            )}
+          </div>
+          <div class="type-content">
+            <h3>{type.title}</h3>
+            <p>{type.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-types {
+    background-color: var(--cream-light);
+    padding: var(--space-3xl) 0;
+  }
+
+  .content-types h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .content-types-subtitle {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .types-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .type-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .type-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--white);
+  }
+
+  .type-icon-sage {
+    background-color: var(--sage);
+  }
+
+  .type-icon-brown {
+    background-color: var(--brown);
+  }
+
+  .type-icon-gold {
+    background-color: #b8a04a;
+  }
+
+  .type-icon-teal {
+    background-color: #6b9a9a;
+  }
+
+  .type-content h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0.125rem;
+    color: var(--text-dark);
+  }
+
+  .type-content p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .type-icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    .type-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .type-content h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

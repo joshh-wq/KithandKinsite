@@ -1,0 +1,102 @@
+---
+---
+
+<footer class="footer">
+  <div class="container-narrow text-center">
+    <p class="footer-built">
+      Built by <a href="https://twitter.com/joshhersh" target="_blank" rel="noopener">Josh Hersh</a> in San Francisco
+    </p>
+    <p class="footer-inspired">
+      Inspired by friendships that deserve better than Instagram
+    </p>
+
+    <div class="footer-contact">
+      <p>Questions? <a href="mailto:josh@kithandkin.app">josh@kithandkin.app</a></p>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://twitter.com/joshhersh" target="_blank" rel="noopener" aria-label="Twitter">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="mailto:josh@kithandkin.app" aria-label="Email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <p class="footer-copyright">
+      &copy; {new Date().getFullYear()} Kith & Kin
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-2xl) 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-built {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: var(--space-xs);
+  }
+
+  .footer-built a {
+    color: var(--brown);
+    font-weight: 500;
+  }
+
+  .footer-inspired {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-contact {
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-contact p {
+    font-size: 0.9375rem;
+  }
+
+  .footer-contact a {
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-muted);
+    background-color: var(--sage-light);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+
+  .footer-social a:hover {
+    background-color: var(--sage);
+    color: var(--white);
+  }
+
+  .footer-copyright {
+    font-size: 0.8125rem;
+    color: var(--text-light);
+  }
+</style>

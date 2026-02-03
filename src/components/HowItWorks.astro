@@ -1,0 +1,150 @@
+---
+const steps = [
+  {
+    number: "1",
+    title: "Choose your time",
+    description: "Set a session for 1-15 minutes. No endless scrolling. You're in control.",
+    screenshot: "Session timer selection"
+  },
+  {
+    number: "2",
+    title: "See what matters",
+    description: "Photos, memories, gratitude, notes from people you actually know and care about.",
+    screenshot: "Session showing mixed content"
+  },
+  {
+    number: "3",
+    title: "Connect with intention",
+    description: "Reach out to specific people when something moves you. No performing for an audience.",
+    screenshot: "Session completion with reach-out options"
+  }
+];
+---
+
+<section class="how-it-works">
+  <div class="container">
+    <h2 class="text-center mb-xl">How It Works</h2>
+
+    <div class="steps">
+      {steps.map((step, index) => (
+        <div class="step" class:list={[{ 'step-reverse': index % 2 === 1 }]}>
+          <div class="step-content">
+            <span class="step-number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+          <div class="step-image">
+            <div class="phone-mockup-small">
+              <div class="screenshot-placeholder">
+                <span>{step.screenshot}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    padding: var(--space-3xl) 0;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .step-reverse .step-content {
+    order: 2;
+  }
+
+  .step-reverse .step-image {
+    order: 1;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--sage);
+    color: var(--white);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 50%;
+    margin-bottom: var(--space-sm);
+  }
+
+  .step h3 {
+    color: var(--text-dark);
+    margin-bottom: var(--space-xs);
+  }
+
+  .step p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .step-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone-mockup-small {
+    width: 220px;
+    height: 460px;
+    background: var(--white);
+    border-radius: 32px;
+    padding: 10px;
+    box-shadow:
+      0 15px 30px -8px rgba(31, 41, 33, 0.12),
+      0 0 0 1px rgba(31, 41, 33, 0.05);
+  }
+
+  .screenshot-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, var(--cream) 0%, var(--sage-light) 100%);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 0.8125rem;
+    text-align: center;
+    padding: var(--space-sm);
+  }
+
+  @media (max-width: 768px) {
+    .step {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .step-reverse .step-content,
+    .step-reverse .step-image {
+      order: unset;
+    }
+
+    .step-content {
+      order: -1;
+    }
+
+    .phone-mockup-small {
+      width: 180px;
+      height: 380px;
+    }
+  }
+</style>
