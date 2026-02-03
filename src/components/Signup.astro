@@ -28,8 +28,8 @@
       </button>
 
       <p class="signup-note" id="form-message">
-        Early supporters get <strong>$19 lifetime access</strong><br />
-        <span class="text-muted">(Regular price: $25)</span>
+        Early supporters get <strong>$10 lifetime access</strong><br />
+        <span class="text-muted">(Regular price: $20)</span>
       </p>
     </form>
   </div>
@@ -88,6 +88,9 @@
 </style>
 
 <script>
+  const SUPABASE_URL = 'https://hlvsukzomtapqjkyncyd.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhsdnN1a3pvbXRhcHFqa3luY3lkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjczNzQyMjgsImV4cCI6MjA4Mjk1MDIyOH0.yGZZ60pASf38rp1Ma4F9dImo50aUlvjyQSUhOsB1sSw';
+
   const form = document.getElementById('signup-form') as HTMLFormElement;
   const message = document.getElementById('form-message') as HTMLElement;
 
@@ -95,27 +98,32 @@
     e.preventDefault();
 
     const formData = new FormData(form);
-    const email = formData.get('email');
-    const professional = formData.get('professional') === 'on';
+    const email = formData.get('email') as string;
+    const isProfessional = formData.get('professional') === 'on';
 
     try {
-      // TODO: Replace with actual Resend/Buttondown API call
-      const response = await fetch('/api/subscribe', {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, professional }),
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer': 'return=minimal',
+        },
+        body: JSON.stringify({ email, is_professional: isProfessional }),
       });
 
-      if (response.ok) {
+      if (response.ok || response.status === 201) {
         form.classList.add('success');
         message.innerHTML = "You're on the list! We'll be in touch soon.";
+      } else if (response.status === 409) {
+        form.classList.add('success');
+        message.innerHTML = "You're already on the list! We'll be in touch soon.";
       } else {
         message.innerHTML = '<span style="color: var(--brown);">Something went wrong. Please try again.</span>';
       }
     } catch (error) {
-      // For now, just show success (we'll wire up the API later)
-      form.classList.add('success');
-      message.innerHTML = "You're on the list! We'll be in touch soon.";
+      message.innerHTML = '<span style="color: var(--brown);">Something went wrong. Please try again.</span>';
     }
   });
 </script>
