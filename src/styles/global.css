@@ -175,7 +175,7 @@ input[type="text"]:focus {
 
 input[type="email"]::placeholder,
 input[type="text"]::placeholder {
-  color: var(--text-light);
+  color: var(--text-muted);
 }
 
 /* Checkbox */
