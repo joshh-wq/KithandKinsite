@@ -35,6 +35,17 @@ const { title, description = "Stay close to your people. Not the algorithm. Time
   </head>
   <body>
     <slot />
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>
 

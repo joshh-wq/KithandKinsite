@@ -20,11 +20,11 @@ const stats = [
 
 <section class="stats">
   <div class="container">
-    <p class="stats-label">The problem in numbers</p>
+    <p class="stats-label reveal">The problem in numbers</p>
 
     <div class="stats-grid">
-      {stats.map((stat) => (
-        <div class="stat-card">
+      {stats.map((stat, i) => (
+        <div class={`stat-card reveal reveal-delay-${i + 1}`}>
           <span class="stat-number">{stat.number}</span>
           <span class="stat-label">{stat.label}</span>
           <span class="stat-detail">{stat.detail}</span>

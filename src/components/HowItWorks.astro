@@ -23,11 +23,11 @@ const steps = [
 
 <section class="how-it-works">
   <div class="container">
-    <h2 class="text-center mb-xl">How It Works</h2>
+    <h2 class="text-center mb-xl reveal">How It Works</h2>
 
     <div class="steps">
       {steps.map((step, index) => (
-        <div class="step" class:list={[{ 'step-reverse': index % 2 === 1 }]}>
+        <div class="step reveal" class:list={[{ 'step-reverse': index % 2 === 1 }]}>
           <div class="step-content">
             <span class="step-number">{step.number}</span>
             <h3>{step.title}</h3>
@@ -42,6 +42,7 @@ const steps = [
                   <span>{step.placeholder}</span>
                 </div>
               )}
+              <div class="phone-glare"></div>
             </div>
           </div>
         </div>
@@ -112,9 +113,28 @@ const steps = [
     background: var(--sage);
     border-radius: 36px;
     padding: 10px;
+    position: relative;
+    overflow: hidden;
     box-shadow:
       0 15px 30px -8px rgba(31, 41, 33, 0.12),
       0 0 0 1px rgba(31, 41, 33, 0.05);
+  }
+
+  .phone-glare {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 24px;
+    background: linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      transparent 50%
+    );
+    pointer-events: none;
+    z-index: 3;
   }
 
   .screenshot {
@@ -122,6 +142,8 @@ const steps = [
     height: 100%;
     object-fit: cover;
     border-radius: 24px;
+    position: relative;
+    z-index: 1;
   }
 
   .screenshot-placeholder {

@@ -4,21 +4,22 @@
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <p class="hero-brand">Kith & Kin</p>
-      <div class="hero-divider"></div>
-      <h1>
+      <p class="hero-brand reveal visible">Kith & Kin</p>
+      <div class="hero-divider reveal visible reveal-delay-1"></div>
+      <h1 class="reveal visible reveal-delay-2">
         <span class="hero-setup">No matter what's happening</span>
         <span class="text-brown hero-main">Stay close to your people.</span>
       </h1>
-      <p class="hero-subtitle">
+      <p class="hero-subtitle reveal visible reveal-delay-3">
         Built for closeness.<br />
         To protect your time.<br />
         Quiet by design.
       </p>
       </div>
-    <div class="hero-image">
+    <div class="hero-image reveal visible reveal-delay-2">
       <div class="phone-mockup">
         <img src="/screenshots/KithandKin_signin.png" alt="Kith & Kin sign in screen" class="screenshot" />
+        <div class="phone-glare"></div>
       </div>
     </div>
   </div>
@@ -105,9 +106,28 @@
     background: var(--sage);
     border-radius: 40px;
     padding: 12px;
+    position: relative;
+    overflow: hidden;
     box-shadow:
       0 25px 50px -12px rgba(31, 41, 33, 0.15),
       0 0 0 1px rgba(31, 41, 33, 0.05);
+  }
+
+  .phone-glare {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border-radius: 32px;
+    background: linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      transparent 50%
+    );
+    pointer-events: none;
+    z-index: 3;
   }
 
   .screenshot {
@@ -115,6 +135,8 @@
     height: 100%;
     object-fit: cover;
     border-radius: 32px;
+    position: relative;
+    z-index: 1;
   }
 
   @media (max-width: 900px) {
