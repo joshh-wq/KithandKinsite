@@ -3,9 +3,12 @@
 
 <section class="signup" id="waitlist">
   <div class="container-narrow text-center">
-    <h2 class="reveal">Be the first to know when we launch</h2>
+    <h2 class="reveal">Not ready to commit? Stay in the loop.</h2>
+    <p class="signup-intro reveal reveal-delay-1">
+      Join our notification list to hear about launch updates, governance decisions, and how the cooperative is growing.
+    </p>
 
-    <form class="signup-form reveal reveal-delay-1" id="signup-form">
+    <form class="signup-form reveal reveal-delay-2" id="signup-form">
       <div class="form-group">
         <input
           type="email"
@@ -23,13 +26,12 @@
         </label>
       </div>
 
-      <button type="submit" class="btn btn-sage">
-        Notify me
+      <button type="submit" class="btn btn-outline">
+        Keep me updated
       </button>
 
       <p class="signup-note" id="form-message">
-        Early supporters get <strong>$10 lifetime access</strong><br />
-        <span class="text-muted">(Regular price: $20)</span>
+        No spam, just meaningful updates.
       </p>
     </form>
   </div>
@@ -42,7 +44,13 @@
   }
 
   .signup h2 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .signup-intro {
+    font-size: 1.0625rem;
+    max-width: 480px;
+    margin: 0 auto var(--space-lg);
   }
 
   .signup-form {

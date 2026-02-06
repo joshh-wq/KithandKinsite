@@ -1,23 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import StickyBanner from '../components/StickyBanner.astro';
 import Hero from '../components/Hero.astro';
 import Problem from '../components/Problem.astro';
 import Stats from '../components/Stats.astro';
 import HowItWorks from '../components/HowItWorks.astro';
-import Comparison from '../components/Comparison.astro';
-import Professionals from '../components/Professionals.astro';
+import Coop from '../components/Coop.astro';
+import Founding100 from '../components/Founding100.astro';
 import Signup from '../components/Signup.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Kith & Kin - A calm social app. Stay close to your people.">
+<Layout title="Kith & Kin - A member-owned social space for your inner circle.">
+  <StickyBanner />
   <main>
     <Hero />
     <Problem />
     <Stats />
     <HowItWorks />
-    <Comparison />
-    <Professionals />
+    <Coop />
+    <Founding100 />
     <Signup />
   </main>
   <Footer />

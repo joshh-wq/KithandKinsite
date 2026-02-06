@@ -1,0 +1,203 @@
+---
+const pillars = [
+  {
+    icon: "vote",
+    title: "Democratic Control",
+    description: "One member, one vote. You help decide which features we build and how the platform is run."
+  },
+  {
+    icon: "transparency",
+    title: "Radical Transparency",
+    description: "Every dollar of membership dues is visible on our open ledger. You know exactly where your money goes."
+  },
+  {
+    icon: "data",
+    title: "Data Sovereignty",
+    description: "You own your data. We don't sell it, and you can take your entire social graph with you if you ever choose to leave."
+  }
+];
+---
+
+<section class="coop">
+  <div class="container">
+    <h2 class="reveal">The Kith & Kin Cooperative</h2>
+    <p class="coop-intro reveal reveal-delay-1">
+      Most social platforms are built to serve shareholders. Kith & Kin is built to serve its members.
+      By choosing a platform cooperative model, we've legally and technically locked our values into the foundation of the app.
+    </p>
+
+    <div class="pillars">
+      {pillars.map((pillar, index) => (
+        <div class={`pillar reveal reveal-delay-${index + 1}`}>
+          <div class="pillar-icon" data-icon={pillar.icon}>
+            {pillar.icon === "vote" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            )}
+            {pillar.icon === "transparency" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            )}
+            {pillar.icon === "data" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            )}
+          </div>
+          <h3>{pillar.title}</h3>
+          <p>{pillar.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="coop-box reveal">
+      <div class="coop-box-header">
+        <span class="coop-box-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </span>
+        <h3>Why a Cooperative?</h3>
+      </div>
+      <div class="coop-box-content">
+        <p>
+          We believe that social technology shaped by venture capital will always prioritize engagement over well-being,
+          growth over community, and shareholders over users.
+        </p>
+        <p>
+          A platform cooperative is a different kind of company—one where the people who use the platform also own it.
+          There are no outside investors pushing for infinite growth. No board meetings about how to extract more attention.
+          No pivot to ads when the money runs low.
+        </p>
+        <p>
+          Instead, we answer to our members. When you join as a member-owner, you're not just a user—you're a stakeholder
+          with a real vote in how this platform evolves. That's the foundation we think social technology needs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .coop {
+    background-color: var(--white);
+    padding: var(--space-3xl) 0;
+  }
+
+  .coop h2 {
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .coop-intro {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--space-2xl);
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .pillar {
+    text-align: center;
+    padding: var(--space-lg);
+  }
+
+  .pillar-icon {
+    width: 72px;
+    height: 72px;
+    background: var(--sage-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
+    color: var(--sage);
+  }
+
+  .pillar h3 {
+    color: var(--text-dark);
+    margin-bottom: var(--space-sm);
+  }
+
+  .pillar p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .coop-box {
+    background: var(--cream-light);
+    border: 2px solid var(--sage-light);
+    border-radius: 1rem;
+    padding: var(--space-xl);
+    margin-top: var(--space-2xl);
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 6px -1px rgba(31, 41, 33, 0.05);
+  }
+
+  .coop-box-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .coop-box-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--sage-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sage);
+  }
+
+  .coop-box-header h3 {
+    color: var(--text-dark);
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .coop-box-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .coop-box-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .pillars {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .pillar {
+      padding: var(--space-md);
+    }
+
+    .coop-box {
+      padding: var(--space-lg);
+    }
+  }
+</style>
