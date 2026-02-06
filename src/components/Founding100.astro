@@ -14,12 +14,14 @@
 
       <form class="founding-form" id="founding-form">
         <div class="form-row">
+          <label for="founding-email" class="sr-only">Email address</label>
           <input
             type="email"
             name="email"
             id="founding-email"
             placeholder="you@example.com"
             required
+            aria-describedby="founding-message"
           />
           <button type="submit" class="btn btn-primary">
             Become a Founding Member
