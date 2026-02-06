@@ -1,65 +1,201 @@
 ---
+const problems = [
+  {
+    icon: "rage",
+    label: "Rage",
+    description: "Algorithms that amplify outrage to keep you engaged"
+  },
+  {
+    icon: "comparison",
+    label: "Toxic Comparison",
+    description: "Curated highlight reels that make you feel inadequate"
+  },
+  {
+    icon: "attention",
+    label: "Shattered Attention",
+    description: "Endless feeds designed to steal your time"
+  }
+];
 ---
 
-<section class="problem">
-  <div class="container-narrow text-center">
-    <h2 class="reveal">Social media companies promised us connection.</h2>
-    <p class="problem-line reveal reveal-delay-1">Instead, we got rage, toxic comparison, and shattered attention spans.</p>
-    <h3 class="problem-statement reveal reveal-delay-2">Shareholders have always been at the center. Not us.</h3>
+<section class="problem-section">
+  <div class="container">
+    <div class="problem-header">
+      <h2 class="reveal">Social media promised connection.</h2>
+      <p class="problem-subtitle reveal reveal-delay-1">Instead, we got something else entirely.</p>
+    </div>
+
+    <div class="problems-grid">
+      {problems.map((problem, index) => (
+        <div class={`problem-card reveal reveal-delay-${index + 1}`}>
+          <div class="problem-icon">
+            {problem.icon === "rage" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            )}
+            {problem.icon === "comparison" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            )}
+            {problem.icon === "attention" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            )}
+          </div>
+          <h3>{problem.label}</h3>
+          <p>{problem.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="problem-body-wrapper reveal">
+      <p class="problem-body">
+        The platforms are optimized for shareholders, not for us. And it shows—in how we feel after scrolling, in the relationships we've let slip away.
+      </p>
+    </div>
+
+    <div class="problem-cta reveal">
+      <div class="cta-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
       </div>
+      <p class="problem-question">What if a social app actually helped you feel closer to the people you care about?</p>
+    </div>
+  </div>
 </section>
 
 <style>
-  .problem {
+  .problem-section {
     background-color: var(--white);
     padding: var(--space-3xl) 0;
   }
 
-  .problem h2 {
-    margin-bottom: var(--space-sm);
+  .problem-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
   }
 
-  .problem-line {
+  .problem-header h2 {
+    margin-bottom: var(--space-sm);
+    font-size: 2.5rem;
+  }
+
+  .problem-subtitle {
     font-size: 1.25rem;
     color: var(--text-muted);
   }
 
-  .problem-statement {
-    font-size: 2rem;
-    color: var(--brown-dark);
-    margin-top: var(--space-lg);
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
   }
 
-  .problem-break {
-    width: 60px;
-    height: 2px;
-    background-color: var(--brown-light);
-    margin: var(--space-xl) auto;
+  .problem-card {
+    background-color: var(--cream);
+    border-radius: 1rem;
+    padding: var(--space-lg);
+    text-align: center;
   }
 
-  .problem-want {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-style: italic;
+  .problem-icon {
+    width: 56px;
+    height: 56px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
+    color: var(--brown);
+  }
+
+  .problem-card h3 {
+    font-size: 1.125rem;
     color: var(--text-dark);
-    line-height: 1.6;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xs);
+  }
+
+  .problem-card p {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .problem-body-wrapper {
+    max-width: 600px;
+    margin: 0 auto var(--space-2xl);
+    text-align: center;
+  }
+
+  .problem-body {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .problem-cta {
+    background-color: var(--sage-light);
+    border-radius: 1rem;
+    padding: var(--space-xl);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-icon {
+    width: 64px;
+    height: 64px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
+    color: var(--sage);
   }
 
   .problem-question {
     font-family: var(--font-serif);
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--sage);
+    line-height: 1.4;
+    margin: 0;
   }
 
   @media (max-width: 768px) {
-    .problem-want {
+    .problem-header h2 {
+      font-size: 2rem;
+    }
+
+    .problems-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .problem-body {
+      font-size: 1.125rem;
+    }
+
+    .problem-question {
       font-size: 1.25rem;
     }
 
-    .problem-want br {
-      display: none;
+    .problem-cta {
+      padding: var(--space-lg);
     }
   }
 </style>
